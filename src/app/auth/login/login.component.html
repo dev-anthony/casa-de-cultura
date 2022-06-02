@@ -1,0 +1,19 @@
+<!-- Login -->
+<body class="vh-100 d-flex justify-content-center align-items-center">
+  <div class="contenedor">
+    <h1 class="text-center">Login</h1>
+    <form [formGroup]="formLogin" (ngSubmit)="login()">
+      <div class="form-group">
+        <label class="form-label" >Username</label>
+        <input type="text" class="form-control" formControlName="username" placeholder="Username">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="Password">
+      </div>
+      <div class="boton-login">
+        <button type="submit" class="btn btn-primary mt-4" [disabled]="formLogin.invalid">Login</button>
+      </div>
+    </form>
+  </div>
+</body>

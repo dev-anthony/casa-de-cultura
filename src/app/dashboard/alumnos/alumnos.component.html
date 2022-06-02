@@ -1,0 +1,33 @@
+<p class="text-center mt-3">Listado de alumnos!</p>
+<div class="d-flex justify-content-center container-lg-fluid">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido Paterno</th>
+        <th>Apellido Materno</th>
+        <th>Telefono 1</th>
+        <th>Telefono 2</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alumno of alumnos; let id=index">
+        <td>{{ alumno.id_alumno }}</td>
+        <td>{{ alumno.nombre_alumno }}</td>
+        <td>{{ alumno.apeliido_p }}</td>
+        <td>{{ alumno.apellido_m }}</td>
+        <td>{{ alumno.telefono_1 }}</td>
+        <td>{{ alumno.telefono_2 }}</td>
+        <td>
+          <a href="#"><i class="bi bi-pencil"></i></a>
+        </td>
+        <td>
+          <a href="#"><i class="bi bi-trash"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
