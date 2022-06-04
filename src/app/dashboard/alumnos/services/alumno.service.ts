@@ -36,4 +36,8 @@ export class AlumnoService {
   agregarAlumno(alumno: any): Observable<any> {
     return this.http.post(this.url+'/api/alumnos/create', alumno, {headers: this.headersT});
   }
+  // Eliminar un alumno
+  eliminarAlumno(id: any): Observable<any> {
+    return this.http.delete(this.url+'/api/alumnos/delete/'+id, {headers: this.headersT});
+  }
 }

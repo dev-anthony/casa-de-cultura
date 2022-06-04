@@ -23,7 +23,7 @@ export class AlumnosComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 2
+      pageLength: 10,
     };
     this.getAlumnos();
   }
@@ -36,6 +36,10 @@ export class AlumnosComponent implements OnInit, OnDestroy {
         this.dtTrigger.next(0);
       }
     );
+  }
+
+  eliminarAlumno(id : any) {
+    this.__as.eliminarAlumno(id).subscribe();
   }
 
   ngOnDestroy(): void {

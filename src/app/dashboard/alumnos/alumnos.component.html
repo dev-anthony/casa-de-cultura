@@ -1,5 +1,10 @@
-<p class="text-center mt-3">Listado de alumnos!</p>
-<div class="d-flex justify-content-center container-lg-fluid">
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+  <p class="text-center mt-3">Listado de alumnos!</p>
+<div class="btn-agregar">
+  <a type="button" class="btn btn-primary" routerLink="/agregar-alumno">Agregar</a>
+</div>
+<div class="container-fluid mt-5">
   <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
     <thead>
       <tr>
@@ -22,12 +27,13 @@
         <td>{{ alumno.telefono_1 }}</td>
         <td>{{ alumno.telefono_2 }}</td>
         <td>
-          <a href="#"><i class="bi bi-pencil"></i></a>
+          <a href=""><i class="bi bi-pencil"></i></a>
         </td>
         <td>
-          <a href="#"><i class="bi bi-trash"></i></a>
+          <a type="button" (click)="eliminarAlumno(alumno.id_alumno)"><i class="bi bi-trash"></i></a>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+</main>
