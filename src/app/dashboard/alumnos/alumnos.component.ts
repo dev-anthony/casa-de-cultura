@@ -7,6 +7,7 @@ import { AlumnoService } from './services/alumno.service';
 // Import de sweetalert2
 import swal from'sweetalert2';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-alumnos',
@@ -25,6 +26,7 @@ export class AlumnosComponent implements OnInit, OnDestroy {
     private _as: AlumnoService,
     private _router: Router,
     private _activateRoute: ActivatedRoute,
+    private _cookieService: CookieService,
      ) {
        
      }
@@ -53,27 +55,38 @@ export class AlumnosComponent implements OnInit, OnDestroy {
   }
 
   eliminarAlumno(id : any) {
-    this._as.eliminarAlumno(id).subscribe();
-    swal.fire({
-      title: '¿Estas seguro?',
-      text: "No podras revertir esto",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, Eliminar!'
-    }).then((result) => {
-      if (result.value) {
-        this._as.eliminarAlumno(id).subscribe();
-        swal.fire(
-          'Eliminado!',
-          'El alumno ha sido eliminado.',
-          'success'
-          ).then(() => {
-            location.reload();
-          })
-      }
-    })
+    const rol = this._cookieService.get('role');
+    if (rol === '1') {
+      this._as.eliminarAlumno(id).subscribe();
+      swal.fire({
+        title: '¿Estas seguro?',
+        text: "No podras revertir esto",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, Eliminar!'
+      }).then((result) => {
+        if (result.value) {
+          this._as.eliminarAlumno(id).subscribe();
+          swal.fire(
+            'Eliminado!',
+            'El alumno ha sido eliminado.',
+            'success'
+            ).then(() => {
+              location.reload();
+            })
+        }
+      })
+    } else {
+      swal.fire({
+        title: '¡Error!',
+        text: 'No tienes permisos para eliminar alumnos, solo el administrador puede eliminar alumnos',
+        icon: 'error',
+        showConfirmButton: true,
+      })
+    }
+
   }
 
   ngOnDestroy(): void {
