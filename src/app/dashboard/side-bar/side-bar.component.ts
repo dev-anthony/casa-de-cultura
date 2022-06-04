@@ -9,7 +9,8 @@ import { CookieService } from 'ngx-cookie-service';
 export class SideBarComponent implements OnInit {
 
   rol: any = this._cookieService.get('role'); //me trae el rol a traves del token
-  
+  name: any = this._cookieService.get('name');
+
   constructor( private _cookieService: CookieService, ) { }
 
   ngOnInit(): void {
