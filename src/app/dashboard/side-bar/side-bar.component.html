@@ -22,18 +22,23 @@
               Inicio
             </a>
           </li>
+          <!-- Solo los que tienen rol == 1 lo pueden ver -->
+          <ng-container *ngIf="rol == 1">
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="file" class="align-text-bottom"></span>
               Roles
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="shopping-cart" class="align-text-bottom"></span>
-              Usuarios
-            </a>
-          </li>
+          </ng-container>
+          <ng-container *ngIf="rol == 1">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="shopping-cart" class="align-text-bottom"></span>
+                Usuarios
+              </a>
+            </li>
+        </ng-container>
           <li class="nav-item">
             <a class="nav-link" routerLink="/alumnos">
               <span data-feather="users" class="align-text-bottom"></span>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-side-bar',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideBarComponent implements OnInit {
 
-  constructor() { }
+  rol: any = this._cookieService.get('role'); //me trae el rol a traves del token
+  
+  constructor( private _cookieService: CookieService, ) { }
 
   ngOnInit(): void {
+  }
+
+  // ocultar por rol lo que se ve en el sidebar
+  ocultarPorRol() {
+    const rol = this._cookieService.get('role');
+    if (rol === '1') {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
