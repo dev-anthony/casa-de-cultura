@@ -27,7 +27,7 @@
         <td>{{ alumno.telefono_1 }}</td>
         <td>{{ alumno.telefono_2 }}</td>
         <td>
-          <a href=""><i class="bi bi-pencil"></i></a>
+          <a type="button" [routerLink]="['/editar-alumno', alumno.id_alumno]"><i class="bi bi-pencil"></i></a>
         </td>
         <td>
           <a type="button" (click)="eliminarAlumno(alumno.id_alumno)"><i class="bi bi-trash"></i></a>

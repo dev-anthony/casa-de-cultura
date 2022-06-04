@@ -1,8 +1,12 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+// Import del modelo de alumno
 import { AlumnoModel } from './models/AlumnoModel';
+// Import de los servicios
 import { AlumnoService } from './services/alumno.service';
+// Import de sweetalert2
+import swal from'sweetalert2';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-alumnos',
@@ -11,14 +15,19 @@ import { AlumnoService } from './services/alumno.service';
 })
 export class AlumnosComponent implements OnInit, OnDestroy {
 
-  dtOptions: DataTables.Settings = {};
-  alumnos: any;
+  alumnos: any [] = [];
+  id: any;
 
+  dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(
-    private httpClient: HttpClient,
-    private __as: AlumnoService ) { }
+    private _as: AlumnoService,
+    private _router: Router,
+    private _activateRoute: ActivatedRoute,
+     ) {
+       
+     }
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -29,7 +38,7 @@ export class AlumnosComponent implements OnInit, OnDestroy {
   }
 
   getAlumnos() {
-    this.__as.getAlumnos().subscribe(
+    this._as.getAlumnos().subscribe(
       data => {
         this.alumnos = data;
         console.log(data)
@@ -38,8 +47,20 @@ export class AlumnosComponent implements OnInit, OnDestroy {
     );
   }
 
+  editarAlumno(id: any) {
+    console.log(id)
+    this.id = this._activateRoute.snapshot.params['id'];
+  }
+
   eliminarAlumno(id : any) {
-    this.__as.eliminarAlumno(id).subscribe();
+    this._as.eliminarAlumno(id).subscribe();
+    swal.fire(
+      'Alumno eliminado!',
+      'El alumno ha sido eliminado correctamente.',
+      'success'
+      )
+      // refresca la pagina para que se vea el cambio
+      this._router.navigate(['/alumnos']);
   }
 
   ngOnDestroy(): void {

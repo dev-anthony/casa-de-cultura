@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { AlumnoService } from '../services/alumno.service';
 
 @Component({
@@ -28,14 +29,20 @@ export class AgregarAlumnoComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.agregarAlumno()
+    // this.agregarAlumno()
   }
 
   agregarAlumno() {
     this.__alumnoService.agregarAlumno(this.form.value).subscribe(
       (data) => {
-        this.__router.navigate(['/alumnos'])
+        Swal.fire({
+          title: 'Alumno agregado correctamente',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        })
       })
+      this.__router.navigate(['/alumnos'])
   }
 
 }

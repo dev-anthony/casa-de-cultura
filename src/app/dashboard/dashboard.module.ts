@@ -12,14 +12,15 @@ import { AlumnosComponent } from './alumnos/alumnos.component';
 import { DashboardComponent } from './dashboard.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { AgregarAlumnoComponent } from './alumnos/agregar-alumno/agregar-alumno.component';
-
-
+import { EditarAlumnoComponent } from './alumnos/editar-alumno/editar-alumno.component';
 @NgModule({
   declarations: [
     DashboardComponent,
     SideBarComponent,
     AlumnosComponent,
     AgregarAlumnoComponent,
+    EditarAlumnoComponent,
+
   ],
   imports: [
     CommonModule,
