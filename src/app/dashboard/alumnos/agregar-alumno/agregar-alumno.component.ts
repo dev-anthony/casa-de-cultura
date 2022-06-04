@@ -38,8 +38,8 @@ export class AgregarAlumnoComponent implements OnInit {
         Swal.fire({
           title: 'Alumno agregado correctamente',
           icon: 'success',
-          showConfirmButton: false,
-          timer: 1500
+          showConfirmButton: true,
+          // timer: 1500
         })
       })
       this.__router.navigate(['/alumnos'])

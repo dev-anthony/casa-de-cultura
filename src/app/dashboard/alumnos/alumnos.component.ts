@@ -54,13 +54,26 @@ export class AlumnosComponent implements OnInit, OnDestroy {
 
   eliminarAlumno(id : any) {
     this._as.eliminarAlumno(id).subscribe();
-    swal.fire(
-      'Alumno eliminado!',
-      'El alumno ha sido eliminado correctamente.',
-      'success'
-      )
-      // refresca la pagina para que se vea el cambio
-      this._router.navigate(['/alumnos']);
+    swal.fire({
+      title: '¿Estas seguro?',
+      text: "No podras revertir esto",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, Eliminar!'
+    }).then((result) => {
+      if (result.value) {
+        this._as.eliminarAlumno(id).subscribe();
+        swal.fire(
+          'Eliminado!',
+          'El alumno ha sido eliminado.',
+          'success'
+          ).then(() => {
+            location.reload();
+          })
+      }
+    })
   }
 
   ngOnDestroy(): void {
