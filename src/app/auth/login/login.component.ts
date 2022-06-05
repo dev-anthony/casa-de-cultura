@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import Swal from 'sweetalert2';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -30,22 +31,25 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    // const {username, password} = this.formLogin.value
     const {username, password} = this.formLogin.value
     this.__loginService.login(username, password).subscribe(
-      (res) => {
-         console.log(res);
-      const {token} = res;
-      const {name} = res;
-      const {username} = res;
-      const {rol_id} = res;
-      this.__cookieService.set('name',name);
-      this.__cookieService.set('username',username);
-      this.__cookieService.set('role',rol_id);
-      //duracion del token de una hora
-      this.__cookieService.set('token',token,1/24);
-      this.__router.navigate(['/alumnos']);
-      }); 
+        (res) => {
+           console.log(res);
+           const {token} = res;
+           const {name} = res;
+           const {username} = res;
+           const {rol_id} = res;
+           this.__cookieService.set('name',name);
+           this.__cookieService.set('username',username);
+           this.__cookieService.set('role',rol_id);
+           //duracion del token de una hora
+           this.__cookieService.set('token',token,1/24);
+           this.__router.navigate(['/alumnos']);
+          Swal.fire({
+            title: `Bienvenid@ <p class="text-capitalize">${name.split(' ')[0]}</p>`, // me trae el nombre del usuario solamente
+            icon: 'success',
+            showConfirmButton: true,
+          });
+      }); // fin del res y subscribe
     }
-
 }

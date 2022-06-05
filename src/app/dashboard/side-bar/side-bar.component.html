@@ -6,7 +6,7 @@
   <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" [routerLink]="['/login']">Sign out</a>
+      <a type="button" class="nav-link px-3" (click)="cerrarSesion()" >Sign out</a>
     </div>
   </div>
 </header>
@@ -14,14 +14,14 @@
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-      <div class="position-sticky pt-3">
+      <div class="position-sticky pt-3 text-capitalize">
         <ul class="nav flex-column">
-          <li>Hola {{ name }}</li>
+          <li>hola {{ name.split(' ')[0] }}</li>
           <!-- <li>Rol {{ rol }}</li> -->
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" routerLink="/inicio" >
               <span data-feather="home" class="align-text-bottom"></span>
-              Inicio
+              inicio
             </a>
           </li>
           <!-- Solo los que tienen rol == 1 lo pueden ver -->
@@ -29,7 +29,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="file" class="align-text-bottom"></span>
-              Roles
+              roles
             </a>
           </li>
           </ng-container>
@@ -37,26 +37,26 @@
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <span data-feather="shopping-cart" class="align-text-bottom"></span>
-                Usuarios
+                usuarios
               </a>
             </li>
         </ng-container>
           <li class="nav-item">
             <a class="nav-link" routerLink="/alumnos">
               <span data-feather="users" class="align-text-bottom"></span>
-              Alumnos
+              alumnos
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="bar-chart-2" class="align-text-bottom"></span>
-              Cursos
+              cursos
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span data-feather="layers" class="align-text-bottom"></span>
-              Cursos Alumnos
+              cursos Alumnos
             </a>
           </li>
         </ul>
