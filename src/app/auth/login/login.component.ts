@@ -50,6 +50,16 @@ export class LoginComponent implements OnInit {
             icon: 'success',
             showConfirmButton: true,
           });
-      }); // fin del res y subscribe
-    }
-}
+      }, // fin de la res
+      // error
+      (err) => {
+        Swal.fire({
+          title: 'Error',
+          text: 'Usuario o contraseña incorrectos',
+          icon: 'error',
+          showConfirmButton: true,
+        }) // fin del Swal de error
+      }
+      ); // fin del res y subscribe
+    } // fin del metodo login
+} // fin de la clase LoginComponent
