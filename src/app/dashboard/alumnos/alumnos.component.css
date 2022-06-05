@@ -1,3 +1,7 @@
 .container-lg-fluid {
     transform: translateX(8%);
 }
+
+div.btn-agregar > a {
+    background: linear-gradient(to right, #660cc0, #0b316b);
+}

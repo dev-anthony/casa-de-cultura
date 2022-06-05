@@ -1,0 +1,18 @@
+
+.navbar-dark {
+  background: linear-gradient(to right, #260548, #0b316b) !important;
+    color: white;
+}
+
+#sidebarMenu {
+  background: linear-gradient(to right, #260548, #0b316b);
+}
+
+li {
+  list-style: none;
+  color: #fff;
+}
+
+a, span {
+  color: #fff !important;
+}
