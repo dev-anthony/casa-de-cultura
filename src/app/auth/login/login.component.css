@@ -1,0 +1,36 @@
+body {
+  /* degradado */
+  background: linear-gradient(to right, #260548, #0b316b);
+}
+
+label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+::placeholder {
+  color: rgb(0, 0, 0);
+}
+
+.hero-login {
+  transform: translateX(-50%);
+  height: 100px;
+  width: 100px;
+  background-image: url('../../../assets/img/login/login.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.btn-login {
+  background-color: rgb(7, 23, 247);
+  color: #ffffff;
+  border: 1px solid #51089b;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}

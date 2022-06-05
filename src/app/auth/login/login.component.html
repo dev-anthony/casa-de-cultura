@@ -1,7 +1,7 @@
 <!-- Login -->
 <body class="vh-100 d-flex justify-content-center align-items-center">
-  <div class="contenedor">
-    <h1 class="text-center">Login</h1>
+  <h1 class="hero-login"></h1>
+  <div>
     <form [formGroup]="formLogin" (ngSubmit)="login()">
       <div class="form-group">
         <label class="form-label" >Username</label>
@@ -12,7 +12,7 @@
         <input type="password" class="form-control" formControlName="password" placeholder="Password">
       </div>
       <div class="boton-login">
-        <button type="submit" class="btn btn-primary mt-4" [disabled]="formLogin.invalid">Login</button>
+        <button type="submit" class="btn btn-primary mt-4 btn-login" [disabled]="formLogin.invalid">Login</button>
       </div>
     </form>
   </div>
