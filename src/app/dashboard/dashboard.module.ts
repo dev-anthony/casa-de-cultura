@@ -13,6 +13,9 @@ import { DashboardComponent } from './dashboard.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { AgregarAlumnoComponent } from './alumnos/agregar-alumno/agregar-alumno.component';
 import { EditarAlumnoComponent } from './alumnos/editar-alumno/editar-alumno.component';
+import { RolesComponent } from './roles/roles.component';
+import { CursosAlumnosComponent } from './cursos-alumnos/cursos-alumnos.component';
+
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -20,6 +23,8 @@ import { EditarAlumnoComponent } from './alumnos/editar-alumno/editar-alumno.com
     AlumnosComponent,
     AgregarAlumnoComponent,
     EditarAlumnoComponent,
+    RolesComponent,
+    CursosAlumnosComponent,
 
   ],
   imports: [

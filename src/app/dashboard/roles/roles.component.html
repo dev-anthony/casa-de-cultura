@@ -1,0 +1,52 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <p class="text-center mt-3">Listado de alumnos!</p>
+  <!-- <div class="btn-agregar">
+    <a type="button" class="btn btn-primary" routerLink="/agregar-alumno">Agregar</a>
+  </div> -->
+<div class="container-fluid mt-5 contenedor">
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Rol</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody class="text-capitalize">
+          <tr *ngFor="let rol of roles; let id=index">
+            <td>{{ rol.id_rol }}</td>
+            <td>{{ rol.tipo_rol }}</td>
+            <td>
+              <a type="button" [routerLink]="['/editar-rol', rol.id_rol]"><i class="bi bi-pencil"></i></a>
+            </td>
+            <td>
+              <a type="button" (click)="eliminarRol(rol.id_rol)"><i class="bi bi-trash"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  
+  <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"> -->
+    <div class="card-body">
+      <div class="car-title">
+        <h4 class="text-capitalize">agrega un rol</h4>
+        <div>
+          <form [formGroup]="formRol" (ngSubmit)="agregarRol()">
+            <div class="form-group">
+              <label class="form-label">Rol</label>
+              <input class="form-control" type="text" formControlName="tipo_rol">
+            </div>
+            <div class="boton-rol">
+              <button type="submit" class="btn btn-primary mt-4 btn-login" [disabled]="formRol.invalid">Agregar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  <!-- </canvas> -->
+</div>
+</main>

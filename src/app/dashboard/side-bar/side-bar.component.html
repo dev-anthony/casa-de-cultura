@@ -1,5 +1,5 @@
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-wrap shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-capitalize" routerLink="/inicio" >casa de cultura</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-capitalize" >casa de cultura</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,7 +19,7 @@
           <li>hola {{ name.split(' ')[0] }}</li>
           <!-- <li>Rol {{ rol }}</li> -->
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/inicio" >
+            <a class="nav-link active" aria-current="page">
               <span data-feather="home" class="align-text-bottom"></span>
               inicio
             </a>
@@ -27,7 +27,7 @@
           <!-- Solo los que tienen rol == 1 lo pueden ver -->
           <ng-container *ngIf="rol == 1">
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" routerLink="/roles">
               <span data-feather="file" class="align-text-bottom"></span>
               roles
             </a>
@@ -35,7 +35,7 @@
           </ng-container>
           <ng-container *ngIf="rol == 1">
             <li class="nav-item">
-              <a class="nav-link" href="#">
+              <a class="nav-link">
                 <span data-feather="shopping-cart" class="align-text-bottom"></span>
                 usuarios
               </a>
@@ -48,15 +48,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link">
               <span data-feather="bar-chart-2" class="align-text-bottom"></span>
               cursos
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/cursos-alumnos">
               <span data-feather="layers" class="align-text-bottom"></span>
-              cursos Alumnos
+              cursos alumnos
             </a>
           </li>
         </ul>
