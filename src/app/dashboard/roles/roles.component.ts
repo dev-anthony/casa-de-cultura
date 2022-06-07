@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { Subject } from 'rxjs';
 import Swal from 'sweetalert2';
@@ -23,6 +24,7 @@ export class RolesComponent implements OnInit, OnDestroy {
     private _rolesService: RolesService,
     private _fb: FormBuilder,
     private _cockieService: CookieService,
+    private _activateRoute: ActivatedRoute,
   ) {
     this.formRol = this._fb.group({
       tipo_rol: new FormControl('', [Validators.required]),
@@ -75,13 +77,9 @@ export class RolesComponent implements OnInit, OnDestroy {
       });
   }
 
-  // if(rol != '1'){
-  //   Swal.fire({
-  //     title: 'Estos roles son por defecto, no se pueden eliminar',
-  //     icon: 'error',
-  //     showConfirmButton: true,
-  //   })
-  // }
+  editarRol(id: any) {
+    this.id = this._activateRoute.snapshot.params['id'];
+  }
 
   eliminarRol(id : any){
     if ( id != '1' && id != '2') {

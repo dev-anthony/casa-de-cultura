@@ -19,6 +19,7 @@ import { CursosComponent } from './cursos/cursos.component';
 import { EditarCursoComponent } from './cursos/editar-curso/editar-curso.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
+import { EditarRolComponent } from './roles/editar-rol/editar-rol.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario
     EditarCursoComponent,
     UsuariosComponent,
     EditarUsuarioComponent,
+    EditarRolComponent,
 
   ],
   imports: [

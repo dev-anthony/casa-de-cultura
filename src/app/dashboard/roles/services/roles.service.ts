@@ -23,6 +23,14 @@ export class RolesService {
   getRoles() {
     return this.http.get(`${this.url}/api/roles`, {headers: this.headersT});
   }
+  // Obtenemos un rol por su id
+  getRolByID(id: any): Observable<any> {
+    return this.http.get(this.url+'/api/roles/'+id , {headers: this.headersT});
+  }
+  // Editamos un rol con el token
+  editarAlumno(id: any, rol: any): Observable<any> {
+    return this.http.put<any>(this.url+'/api/roles/edit/'+id, rol, {headers: this.headersT});
+  }
   // Agregar un nuevo rol
   addRol(rol: any): Observable<any> {
     return this.http.post(this.url+'/api/roles/create', rol, {headers: this.headersT});

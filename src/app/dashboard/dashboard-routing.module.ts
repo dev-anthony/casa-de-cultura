@@ -8,6 +8,7 @@ import { CursosAlumnosComponent } from './cursos-alumnos/cursos-alumnos.componen
 import { CursosComponent } from './cursos/cursos.component';
 import { EditarCursoComponent } from './cursos/editar-curso/editar-curso.component';
 import { DashboardComponent } from './dashboard.component';
+import { EditarRolComponent } from './roles/editar-rol/editar-rol.component';
 import { RolesComponent } from './roles/roles.component';
 import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
       ]},
       { path: 'roles', component: RolesComponent },
       { path: 'roles:/id', component: RolesComponent },
+      { path: 'editar-rol/:id', component: EditarRolComponent },
       { path: 'cursos', component: CursosComponent },
       { path: 'cursos/:id', component: CursosComponent },
       { path: 'cursos-alumnos', component: CursosAlumnosComponent },

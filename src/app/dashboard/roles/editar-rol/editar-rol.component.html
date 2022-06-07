@@ -1,0 +1,14 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <p class="text-center mt-4">Editar Alumno!</p>
+  <!-- Reactive form -->
+  <form [formGroup]="formRol" (ngSubmit)="editarRol(id)">
+    <div class="form-group">
+      <label class="form-label">Rol</label>
+      <input class="form-control text-capitalize" type="text" formControlName="tipo_rol">
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary mt-4" [disabled]="formRol.invalid">Editar</button>
+    </div>
+  </form>
+  <!-- .Reactive form -->
+</main>
