@@ -15,7 +15,7 @@
           <tr *ngFor="let curso of cursos let id=index">
             <td>{{ curso.nombre_curso }}</td>
             <td>
-              <input type="checkbox" (click)="sleccionCurso(curso.id_curso)">
+              <input type="checkbox" (click)="getCursoID(curso.id_curso)">
             </td>
           </tr>
         </tbody>
@@ -55,27 +55,30 @@
   <!-- Formulario con datos de cursos y alumnos juntos -->
     <div class="container col-md-12 mb-5 mt-5">
       <div class="mt-3 row d-flex justify-content-center align-items-center">
-        <!-- Table -->
         <p class="text-center mb-5">Cursos alumnos</p>
-        <table class="table table-striped text-capitalize text-center">
-          <thead>
-            <tr>
-              <th>nombre alumno</th>
-              <!-- <th>apellido paterno</th> -->
-              <!-- <th>apellido materno</th> -->
-              <th>curso</th>
-            </tr>
-          </thead>
-          <tbody class="text-capitalize">
-            <tr>
-              <td>
-              </td>
-              <td>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <!-- Fin Table -->
+     <!-- Reactive form -->
+  <form [formGroup]="form" (ngSubmit)="agregarAlumnoCursos()">
+    <div class="form-group">
+      <label class="form-label">Nombre</label>
+      <input class="form-control" type="text" formControlName="nombre_alumno">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Apellido Paterno</label>
+      <input class="form-control" type="text" formControlName="apellido_p">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Apellido Materno</label>
+      <input class="form-control" type="text" formControlName="apellido_m">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Curso</label>
+      <input class="form-control" type="text" formControlName="nombre_curso">
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary mt-4" [disabled]="form.invalid">Agregar</button>
+    </div>
+  </form>
+  <!-- .Reactive form -->
       </div>
     </div>
   <!-- Fin Formulario con datos de cursos y alumnos juntos -->
