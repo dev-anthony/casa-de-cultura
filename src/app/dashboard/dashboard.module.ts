@@ -17,6 +17,8 @@ import { RolesComponent } from './roles/roles.component';
 import { CursosAlumnosComponent } from './cursos-alumnos/cursos-alumnos.component';
 import { CursosComponent } from './cursos/cursos.component';
 import { EditarCursoComponent } from './cursos/editar-curso/editar-curso.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { EditarCursoComponent } from './cursos/editar-curso/editar-curso.compone
     CursosAlumnosComponent,
     CursosComponent,
     EditarCursoComponent,
+    UsuariosComponent,
+    EditarUsuarioComponent,
 
   ],
   imports: [

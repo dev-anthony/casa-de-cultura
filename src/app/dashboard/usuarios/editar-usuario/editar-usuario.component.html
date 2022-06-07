@@ -1,0 +1,25 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <p class="text-center mt-4">Editar Curso!</p>
+<!-- template para agregar el curso -->
+<div class="contenedor">
+  <div class="row">
+    <form [formGroup]="formUsuario" (ngSubmit)="editarUsuario(id)">
+      <div class="form-group">
+        <label class="form-label" >Nombre</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Edita tu nombre">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Nombre de usuario</label>
+        <input type="text" class="form-control" formControlName="username" placeholder="cambia tu nombre de usuario">
+      </div>
+      <!-- <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="Edita tu contraseña">
+      </div> -->
+      <div>
+        <button type="submit" class="btn btn-primary mt-4" [disabled]="formUsuario.invalid">Editar</button>
+      </div>
+    </form>
+  </div>
+</div>
+</main>

@@ -1,0 +1,16 @@
+
+tr {
+  padding: 0 40px;
+}
+
+th {
+  padding: 0 40px;
+}
+tbody {
+  margin: 5px;
+}
+
+
+div.btn-agregar > a {
+  background: linear-gradient(to right, #660cc0, #0b316b);
+}

@@ -1,0 +1,33 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+  <p class="text-center mt-3">Listado de alumnos!</p>
+<div class="btn-agregar">
+  <a type="button" class="btn btn-primary" routerLink="/agregar-usuario">Agregar</a>
+</div>
+<div class="container-fluid mt-5 d-flex justify-content-center align-items-center">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover text-center">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Username</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody class="text-capitalize">
+      <tr *ngFor="let usuario of usuarios; let id=index">
+        <td>{{ usuario.id_usuario }}</td>
+        <td>{{ usuario.name }}</td>
+        <td>{{ usuario.username }}</td>
+        <td>
+          <a type="button" [routerLink]="['/editar-usuario', usuario.id_usuario]"><i class="bi bi-pencil"></i></a>
+        </td>
+        <td>
+          <a type="button" (click)="eliminarUsuario(usuario.id_usuario)"><i class="bi bi-trash"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</main>

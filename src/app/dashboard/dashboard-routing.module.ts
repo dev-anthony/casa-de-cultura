@@ -9,6 +9,8 @@ import { CursosComponent } from './cursos/cursos.component';
 import { EditarCursoComponent } from './cursos/editar-curso/editar-curso.component';
 import { DashboardComponent } from './dashboard.component';
 import { RolesComponent } from './roles/roles.component';
+import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent,
@@ -23,7 +25,10 @@ const routes: Routes = [
       { path: 'cursos', component: CursosComponent },
       { path: 'cursos/:id', component: CursosComponent },
       { path: 'cursos-alumnos', component: CursosAlumnosComponent },
-      { path: 'editar-curso/:id', component: EditarCursoComponent }
+      { path: 'editar-curso/:id', component: EditarCursoComponent },
+      { path: 'usuarios', component: UsuariosComponent },
+      { path: 'usuarios/:id', component: UsuariosComponent },
+      { path: 'editar-usuario/:id', component: EditarUsuarioComponent },
     ] 
   },
   { path: '**', component: Error404Component }
