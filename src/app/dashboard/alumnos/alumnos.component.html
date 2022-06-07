@@ -14,7 +14,6 @@
         <th>Apellido Materno</th>
         <th>Telefono 1</th>
         <th>Telefono 2</th>
-        <th>Curso</th>
         <th>Editar</th>
         <th>Eliminar</th>
       </tr>
@@ -27,7 +26,6 @@
         <td>{{ alumno.apellido_m }}</td>
         <td>{{ alumno.telefono_1 }}</td>
         <td>{{ alumno.telefono_2 }}</td>
-        <td>{{ alumno.curso_id }}</td>
         <td>
           <a type="button" [routerLink]="['/editar-alumno', alumno.id_alumno]"><i class="bi bi-pencil"></i></a>
         </td>

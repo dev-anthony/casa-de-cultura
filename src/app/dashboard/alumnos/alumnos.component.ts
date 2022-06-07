@@ -8,6 +8,7 @@ import { AlumnoService } from './services/alumno.service';
 import swal from'sweetalert2';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-alumnos',
@@ -39,12 +40,27 @@ export class AlumnosComponent implements OnInit, OnDestroy {
     this.getAlumnos();
   }
 
+  isEmpty() {
+    if (this.alumnos.length === 0) {
+      Swal.fire({
+        title: 'Error',
+        text: 'No hay alumnos registrados, por favor registra un alumno',
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
+    }
+  }
+
+
   getAlumnos() {
     this._as.getAlumnos().subscribe(
       data => {
         this.alumnos = data;
         console.log(data)
         this.dtTrigger.next(0);
+      },
+      error => {
+        this.isEmpty();
       }
     );
   }

@@ -1,0 +1,24 @@
+tr {
+  padding: 0 40px;
+}
+
+th {
+  padding: 0 40px;
+}
+tbody {
+  margin: 5px;
+}
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+div.boton-curso > button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}

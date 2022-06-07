@@ -1,0 +1,62 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+  <p class="text-center mt-3">Listado de cursos!</p>
+<div class="container-fluid mt-5">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover text-center">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Curso</th>
+        <th>Descripsion</th>
+        <th>Hora Inicio</th>
+        <th>Hora Fin</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody class="text-capitalize">
+      <tr *ngFor="let curso of cursos; let id=index">
+        <td>{{ curso.id_curso }}</td>
+        <td>{{ curso.nombre_curso }}</td>
+        <td>{{ curso.descripsion }}</td>
+        <td>{{ curso.hora_inicio }}</td>
+        <td>{{ curso.hora_fin }}</td>
+        <td>
+          <a type="button" [routerLink]="['/editar-curso', curso.id_curso]"><i class="bi bi-pencil"></i></a>
+        </td>
+        <td>
+          <a type="button" (click)="eliminarCurso(curso.id_curso)"><i class="bi bi-trash"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- template para agregar el curso -->
+  <div class="contenedor">
+    <div class="row">
+      <form [formGroup]="formCurso" (ngSubmit)="agregarCurso()">
+        <div class="form-group">
+          <label class="form-label" >Curso</label>
+          <input type="text" class="form-control" formControlName="nombre_curso" placeholder="Agrega un nombre de curso">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Descripsion</label>
+          <input type="text" class="form-control" formControlName="descripsion" placeholder="descripsion del cusro">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Hora Inicio</label>
+          <input type="time" class="form-control" formControlName="hora_inicio" placeholder="Hora inicio">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Hora Fnicio</label>
+          <input type="time" class="form-control" formControlName="hora_fin" placeholder="Hora fin">
+        </div>
+        <div class="boton-curso">
+          <button type="submit" class="btn btn-primary mt-4" [disabled]="formCurso.invalid">
+            Agregar Curso
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
