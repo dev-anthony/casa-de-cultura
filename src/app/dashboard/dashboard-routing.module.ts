@@ -8,6 +8,7 @@ import { CursosAlumnosComponent } from './cursos-alumnos/cursos-alumnos.componen
 import { CursosComponent } from './cursos/cursos.component';
 import { EditarCursoComponent } from './cursos/editar-curso/editar-curso.component';
 import { DashboardComponent } from './dashboard.component';
+import { InscribemeComponent } from './inscribeme/inscribeme.component';
 import { EditarRolComponent } from './roles/editar-rol/editar-rol.component';
 import { RolesComponent } from './roles/roles.component';
 import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
@@ -19,8 +20,7 @@ const routes: Routes = [
       { path: 'alumnos', component: AlumnosComponent },
       { path: 'alumnos/:id', component: AlumnosComponent },
       { path: 'agregar-alumno', component: AgregarAlumnoComponent }, 
-      { path: 'editar-alumno/:id', component: EditarAlumnoComponent, canLoad: [EditarAlumnoComponent
-      ]},
+      { path: 'editar-alumno/:id', component: EditarAlumnoComponent },
       { path: 'roles', component: RolesComponent },
       { path: 'roles:/id', component: RolesComponent },
       { path: 'editar-rol/:id', component: EditarRolComponent },
@@ -31,6 +31,8 @@ const routes: Routes = [
       { path: 'usuarios', component: UsuariosComponent },
       { path: 'usuarios/:id', component: UsuariosComponent },
       { path: 'editar-usuario/:id', component: EditarUsuarioComponent },
+
+      { path: 'inscribeme', component: InscribemeComponent },
     ] 
   },
   { path: '**', component: Error404Component }

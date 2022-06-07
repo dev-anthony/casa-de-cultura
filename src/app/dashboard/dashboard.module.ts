@@ -20,6 +20,7 @@ import { EditarCursoComponent } from './cursos/editar-curso/editar-curso.compone
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { EditarUsuarioComponent } from './usuarios/editar-usuario/editar-usuario.component';
 import { EditarRolComponent } from './roles/editar-rol/editar-rol.component';
+import { InscribemeComponent } from './inscribeme/inscribeme.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { EditarRolComponent } from './roles/editar-rol/editar-rol.component';
     UsuariosComponent,
     EditarUsuarioComponent,
     EditarRolComponent,
+    InscribemeComponent,
 
   ],
   imports: [
