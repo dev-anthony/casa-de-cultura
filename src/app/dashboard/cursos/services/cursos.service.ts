@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
+import { CursosModel } from '../editar-curso/models/CursosModel';
 
 @Injectable({
   providedIn: 'root'
@@ -27,13 +28,17 @@ export class CursosService {
     getCurso(id: any) {
       return this.http.get(this.url + '/api/cursos/' + id, {headers: this.headersT});
     }
+  // Obtenemos un curso por su id
+  getCursoByID(id: any): Observable<any> {
+    return this.http.get(this.url+'/api/cursos/'+id , {headers: this.headersT});
+  }
     // Crea un curso
     createCurso(curso: any): Observable<any> {
       return this.http.post(this.url+'/api/cursos/create', curso, {headers: this.headersT});
     }
     // Actualiza un curso
-    updateCurso(curso: any) {
-      return this.http.put(this.url + '/api/cursos/update', curso, {headers: this.headersT});
+    updateCurso(id: any, curso: any): Observable<any> {
+      return this.http.put<any>(this.url+'/api/cursos/edit/'+id, curso, {headers: this.headersT});
     }
     // Elimina un curso
     deleteCurso(id: any) {

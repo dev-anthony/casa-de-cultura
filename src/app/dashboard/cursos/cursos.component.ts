@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import Swal from 'sweetalert2';
 import { CursosService } from './services/cursos.service';
@@ -11,6 +12,7 @@ import { CursosService } from './services/cursos.service';
 })
 export class CursosComponent implements OnInit, OnDestroy {
 
+  id : any;
   formCurso;
   cursos: any [] = [];
   
@@ -20,6 +22,7 @@ export class CursosComponent implements OnInit, OnDestroy {
   constructor(
     private _cursosService: CursosService,
     private _fb: FormBuilder,
+    private _activateRoute: ActivatedRoute,
   ) { 
     // recuerda que el fonmControlName tiene que ser como se encuentra en la base de datos
     this.formCurso = this._fb.group({
@@ -73,6 +76,11 @@ export class CursosComponent implements OnInit, OnDestroy {
         })
         console.log(data)
       });
+  }
+
+  editarCurso(id: any) {
+    console.log(id)
+    this.id = this._activateRoute.snapshot.params['id'];
   }
 
   eliminarCurso(id : any){

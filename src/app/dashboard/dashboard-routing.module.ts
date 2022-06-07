@@ -6,6 +6,7 @@ import { AlumnosComponent } from './alumnos/alumnos.component';
 import { EditarAlumnoComponent } from './alumnos/editar-alumno/editar-alumno.component';
 import { CursosAlumnosComponent } from './cursos-alumnos/cursos-alumnos.component';
 import { CursosComponent } from './cursos/cursos.component';
+import { EditarCursoComponent } from './cursos/editar-curso/editar-curso.component';
 import { DashboardComponent } from './dashboard.component';
 import { RolesComponent } from './roles/roles.component';
 
@@ -21,7 +22,8 @@ const routes: Routes = [
       { path: 'roles:/id', component: RolesComponent },
       { path: 'cursos', component: CursosComponent },
       { path: 'cursos/:id', component: CursosComponent },
-      { path: 'cursos-alumnos', component: CursosAlumnosComponent }
+      { path: 'cursos-alumnos', component: CursosAlumnosComponent },
+      { path: 'editar-curso/:id', component: EditarCursoComponent }
     ] 
   },
   { path: '**', component: Error404Component }

@@ -20,7 +20,7 @@ export class EditarAlumnoComponent implements OnInit {
     private __fb: FormBuilder,
     private __router: Router,
     private __alumnoService: AlumnoService,
-    private _activateRoute: ActivatedRoute,
+    private _activatedRoute: ActivatedRoute,
   ) {
     const telValidate = 10;
     // Se crea el grupo de formulario para validar los datos del alumno
@@ -33,7 +33,7 @@ export class EditarAlumnoComponent implements OnInit {
       telefono_2: new FormControl('', [Validators.required, Validators.minLength(telValidate), Validators.maxLength(telValidate)]),
     })
     // Recupero el id del alumno a editar
-    this.id = this._activateRoute.snapshot.paramMap.get('id');
+    this.id = this._activatedRoute.snapshot.paramMap.get('id');
     this.__alumnoService.getAlumnoByID(this.id).subscribe(
       data => {
         this.form.setValue = data;
@@ -69,8 +69,7 @@ export class EditarAlumnoComponent implements OnInit {
           confirmButtonText: 'Ok'
         })
         this.__router.navigate(['/alumnos']);
-      }
-    )
+      })
   }
   
 

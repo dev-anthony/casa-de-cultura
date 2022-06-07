@@ -1,0 +1,29 @@
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <p class="text-center mt-4">Editar Curso!</p>
+<!-- template para agregar el curso -->
+<div class="contenedor">
+  <div class="row">
+    <form [formGroup]="formCurso" (ngSubmit)="editarCurso(id)">
+      <div class="form-group">
+        <label class="form-label" >Curso</label>
+        <input type="text" class="form-control" formControlName="nombre_curso" placeholder="Agrega un nombre de curso">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Descripsion</label>
+        <input type="text" class="form-control" formControlName="descripsion" placeholder="descripsion del cusro">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Hora Inicio</label>
+        <input type="time" class="form-control" formControlName="hora_inicio" placeholder="Hora inicio">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Hora Fnicio</label>
+        <input type="time" class="form-control" formControlName="hora_fin" placeholder="Hora fin">
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary mt-4" [disabled]="formCurso.invalid">Editar</button>
+      </div>
+    </form>
+  </div>
+</div>
+</main>

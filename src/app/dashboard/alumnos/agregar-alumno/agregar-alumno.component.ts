@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { VistaCursosAlm } from '../models/AlumnoModel';
 import { AlumnoService } from '../services/alumno.service';
 
 @Component({
@@ -11,8 +10,7 @@ import { AlumnoService } from '../services/alumno.service';
   styleUrls: ['./agregar-alumno.component.css']
 })
 export class AgregarAlumnoComponent implements OnInit {
-  
-  cursos: VistaCursosAlm [] = [];
+
   form;
 
   constructor(
