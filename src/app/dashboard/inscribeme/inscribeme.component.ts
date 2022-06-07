@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AlumnoModel } from '../alumnos/models/AlumnoModel';
 import { AlumnoService } from '../alumnos/services/alumno.service';
 import { CursosService } from '../cursos/services/cursos.service';
 
@@ -9,14 +11,17 @@ import { CursosService } from '../cursos/services/cursos.service';
 })
 export class InscribemeComponent implements OnInit {
 
-  id      : any;
+  id_curso      : any;
+  id_alumno      : any;
   alumnos : any;
   cursos  : any;
+
+  seleccionado: boolean = false;
 
   constructor(
     private _cursosServices: CursosService,
     private _alumnoServices: AlumnoService,
-
+    private _activateRoute: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
@@ -40,9 +45,30 @@ export class InscribemeComponent implements OnInit {
         console.log(data);
       })
     }
-    
-  cursoAlm(id : any) {}
 
-  alumnoCurso(id : any) {}
+    getCursoID(id: any) {
+      this._cursosServices.getCursoByID(id).subscribe(
+        (data) => {
+          console.log(data);
+        })
+    }
+
+    getAlumnoID(id: any) {
+      this.id_alumno = this._activateRoute.snapshot.paramMap.get('id');
+      this._alumnoServices.getAlumnoByID(id).subscribe(
+        (data) => {
+          console.log(data.alumno);
+        })
+    }
+
+    sleccionAlumno(id: any) {
+      this.id_alumno = id;
+      console.log(id);
+    }
+
+    sleccionCurso(id: any) {
+      this.id_curso = id;
+      console.log(id);
+    }
 
   }

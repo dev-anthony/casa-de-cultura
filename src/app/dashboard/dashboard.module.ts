@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+// Import forms module
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 // HTTP Client
 import { HttpClientModule } from '@angular/common/http';
@@ -41,6 +43,7 @@ import { InscribemeComponent } from './inscribeme/inscribeme.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     HttpClientModule,
     DataTablesModule,
     ReactiveFormsModule,

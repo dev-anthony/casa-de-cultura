@@ -15,7 +15,7 @@
           <tr *ngFor="let curso of cursos let id=index">
             <td>{{ curso.nombre_curso }}</td>
             <td>
-              <input type="checkbox">
+              <input type="checkbox" (click)="sleccionCurso(curso.id_curso)">
             </td>
           </tr>
         </tbody>
@@ -43,7 +43,7 @@
               <td>{{ alumno.apellido_p }}</td>
               <td>{{ alumno.apellido_m }}</td>
               <td>
-                <input type="checkbox">
+                <input type="checkbox" [(ngModel)]="alumno.seleccionado" (click)="getAlumnoID(alumno.id_alumno)">
               </td>
             </tr>
           </tbody>
@@ -61,17 +61,17 @@
           <thead>
             <tr>
               <th>nombre alumno</th>
-              <th>apellido paterno</th>
-              <th>apellido materno</th>
-              <th>curso inscrito</th>
+              <!-- <th>apellido paterno</th> -->
+              <!-- <th>apellido materno</th> -->
+              <th>curso</th>
             </tr>
           </thead>
           <tbody class="text-capitalize">
-            <tr *ngFor="let alumno of alumnos; let id=index">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr>
+              <td>
+              </td>
+              <td>
+              </td>
             </tr>
           </tbody>
         </table>
