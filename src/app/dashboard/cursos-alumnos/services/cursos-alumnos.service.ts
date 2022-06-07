@@ -23,7 +23,7 @@ export class CursosAlumnosService {
 
      // Obtener todos los cursos-alumnos
   getCursosAlumnos(): Observable<any[]> {
-    return this.http.get<any[]>(this.url+'/api/registros' , {headers: this.headersT});
+    return this.http.get<any[]>(this.url+'/api/registros/' , {headers: this.headersT});
   }
   // Obtiene el curso por alumno
   getCursoAlumno(id: any) {
