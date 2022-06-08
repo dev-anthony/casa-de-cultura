@@ -1,13 +1,15 @@
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
   <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
   <p class="text-center mt-3">Listado de cursos de alumnos!</p>
-<div class="container-fluid mt-5 d-flex justify-content-center align-items-center">
+<div class="container-fluid mt-5 d-flex justify-content-center align-items-center text-center text-capitalize">
   <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
     <thead>
       <tr>
-        <th>ID Curso</th>
-        <th>Curso</th>
-        <th>Alumno</th>
+        <th>id curso</th>
+        <th>curso</th>
+        <th>nombre</th>
+        <th>apellido paterno</th>
+        <th>apellido materno</th>
       </tr>
     </thead>
       <tbody class="text-capitalize">
@@ -15,6 +17,8 @@
           <td>{{curso.id_curso}}</td>
           <td>{{curso.nombre_curso}}</td>
           <td>{{curso.nombre_alumno}}</td>
+          <td>{{curso.apellido_p}}</td>
+          <td>{{curso.apellido_m}}</td>
       </tbody>
   </table>
 </div>

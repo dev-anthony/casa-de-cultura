@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AlumnoModel } from '../alumnos/models/AlumnoModel';
 import { AlumnoService } from '../alumnos/services/alumno.service';
@@ -30,6 +30,7 @@ export class InscribemeComponent implements OnInit {
     private _cursosServices        : CursosService,
     private _alumnoServices        : AlumnoService,
     private _activateRoute         : ActivatedRoute,
+    private _route                 : Router,
   ) {
     this.formAlumCurso = this._fb.group({
       nombre_alumno: new FormControl('', [Validators.required]),
@@ -112,8 +113,7 @@ export class InscribemeComponent implements OnInit {
               )
             })
         }
-        
-
+          this._route.navigate(['/cursos-alumnos']);
       })
     }
 

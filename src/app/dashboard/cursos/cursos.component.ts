@@ -78,10 +78,10 @@ export class CursosComponent implements OnInit, OnDestroy {
       });
   }
 
-  editarCurso(id: any) {
-    console.log(id)
-    this.id = this._activateRoute.snapshot.params['id'];
-  }
+  // editarCurso(id: any) {
+  //   console.log(id)
+  //   this.id = this._activateRoute.snapshot.params['id'];
+  // }
 
   eliminarCurso(id : any){
     Swal.fire({

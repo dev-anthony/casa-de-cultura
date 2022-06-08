@@ -22,3 +22,20 @@ div.boton-curso > button {
   justify-content: center;
   width: 100%;
 }
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid #0b316b;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: linear-gradient(to right, #660cc0, #0b316b);
+}
+form {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid #0b316b;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+}
