@@ -28,13 +28,6 @@ export class SideBarComponent implements OnInit {
       return false;
     }
   }
-  // deshabilita el retroceso en el navegador
-  deshabilitaRetroceso(){
-    window.location.hash="no-back-button";
-    window.location.hash="Again-No-back-button" //chrome
-    window.onhashchange=function(){window.location.hash="no-back-button";}
-  }
-
   // si cierra sesion, elimina el token
   cerrarSesion() {
     this._cookieService.delete('token');
@@ -49,7 +42,6 @@ export class SideBarComponent implements OnInit {
       showConfirmButton: true,
     }).then(() => {
       this._router.navigate(['/login']).then(() => {
-        this.deshabilitaRetroceso(); // se llama al metodo para deshabilitar el retroceso
       })
     })
   }

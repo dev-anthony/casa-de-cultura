@@ -25,8 +25,7 @@ export class EditarUsuarioComponent implements OnInit {
     this.formUsuario = this._fb.group({
       name: new FormControl('', [Validators.required]),
       username: new FormControl('', [Validators.required]),
-      // password: new FormControl('', [Validators.required]),
-      // confirm_password: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
     })
     // Recupero el id del usuario a editar
     this.id = this._activateRoute.snapshot.paramMap.get('id');
@@ -36,6 +35,7 @@ export class EditarUsuarioComponent implements OnInit {
         console.log(data.usuario);
         this.formUsuario.controls['name'].setValue(data.usuario.name);
         this.formUsuario.controls['username'].setValue(data.usuario.username);
+        this.formUsuario.controls['password'].setValue(data.usuario.password);
       })
    }
 
@@ -46,6 +46,7 @@ export class EditarUsuarioComponent implements OnInit {
     this.usuarios.id_usuario = this.id;
     this.usuarios.name = this.formUsuario.value.name;
     this.usuarios.username = this.formUsuario.value.username;
+    this.usuarios.password = this.formUsuario.value.password;
 
     this._usuariosService.editarUsuario(id, this.usuarios).subscribe(
       (data: any) => {
