@@ -43,7 +43,7 @@
               <td>{{ alumno.apellido_p }}</td>
               <td>{{ alumno.apellido_m }}</td>
               <td>
-                <input type="checkbox" [(ngModel)]="alumno.seleccionado" (click)="getAlumnoID(alumno.id_alumno)">
+                <input type="checkbox" (click)="getAlumnoID(alumno.id_alumno)">
               </td>
             </tr>
           </tbody>
@@ -52,34 +52,55 @@
       </div>
     </div>
   <!-- Fin Seccion para Alumnos -->
-  <!-- Formulario con datos de cursos y alumnos juntos -->
-    <div class="container col-md-12 mb-5 mt-5">
+
+  <!-- Formulario con datos IDS -->
+    <div class="container col-md-12 mb-5 mt-5 text-capitalize">
       <div class="mt-3 row d-flex justify-content-center align-items-center">
         <p class="text-center mb-5">Cursos alumnos</p>
      <!-- Reactive form -->
-  <form [formGroup]="form" (ngSubmit)="agregarAlumnoCursos()">
+  <form [formGroup]="formID">
     <div class="form-group">
-      <label class="form-label">Nombre</label>
-      <input class="form-control" type="text" formControlName="nombre_alumno">
+      <label class="form-label">ID Alumno</label>
+      <input class="form-control" type="text" formControlName="id_alumno">
     </div>
     <div class="form-group">
-      <label class="form-label">Apellido Paterno</label>
-      <input class="form-control" type="text" formControlName="apellido_p">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Apellido Materno</label>
-      <input class="form-control" type="text" formControlName="apellido_m">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Curso</label>
-      <input class="form-control" type="text" formControlName="nombre_curso">
-    </div>
-    <div>
-      <button type="submit" class="btn btn-primary mt-4" [disabled]="form.invalid">Agregar</button>
+      <label class="form-label">ID Curso</label>
+      <input class="form-control" type="text" formControlName="id_curso">
     </div>
   </form>
   <!-- .Reactive form -->
       </div>
     </div>
-  <!-- Fin Formulario con datos de cursos y alumnos juntos -->
+  <!-- Fin Formulario con los IDS -->
+
+  <!-- Formulario con datos Datos -->
+  <div class="container col-md-12 mb-5 mt-5 text-capitalize">
+    <div class="mt-3 row d-flex justify-content-center align-items-center">
+      <p class="text-center mb-5">Cursos alumnos</p>
+   <!-- Reactive form -->
+<form [formGroup]="formAlumCurso" (ngSubmit)="agregarAlumnoCursos()">
+  <div class="form-group">
+    <label class="form-label">Nombre</label>
+    <input class="form-control" type="text" formControlName="nombre_alumno">
+  </div>
+  <div class="form-group">
+    <label class="form-label">Apellido Paterno</label>
+    <input class="form-control" type="text" formControlName="apellido_p">
+  </div>
+  <div class="form-group">
+    <label class="form-label">Apellido Materno</label>
+    <input class="form-control" type="text" formControlName="apellido_m">
+  </div>
+  <div class="form-group">
+    <label class="form-label">Curso</label>
+    <input class="form-control" type="text" formControlName="nombre_curso">
+  </div>
+  <div>
+    <button type="submit" class="btn btn-primary mt-4" [disabled]="formID.invalid">Agregar</button>
+  </div>
+</form>
+<!-- .Reactive form -->
+    </div>
+  </div>
+<!-- Fin Formulario con los Datos -->
 </main>

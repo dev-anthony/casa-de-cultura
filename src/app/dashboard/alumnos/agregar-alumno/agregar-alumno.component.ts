@@ -39,7 +39,6 @@ export class AgregarAlumnoComponent implements OnInit {
           title: 'Alumno agregado correctamente',
           icon: 'success',
           showConfirmButton: true,
-          // timer: 1500
         })
       })
       this.__router.navigate(['/alumnos'])
